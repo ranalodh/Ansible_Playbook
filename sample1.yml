@@ -23,6 +23,6 @@
           
         #command: git clone 'https://github.com/ranalodh/myjuniper.git'
         
-      - name: Execute selenium scripts
+     # - name: Execute selenium scripts
         command: cd /usr/selenium_scripts/myjuniper
-        shell: "mvn compile test"
+     #   shell: "mvn compile test"
