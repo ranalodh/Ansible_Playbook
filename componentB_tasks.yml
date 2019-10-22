@@ -1,13 +1,9 @@
----
-- hosts: ec2-54-159-136-238.compute-1.amazonaws.com
-  sudo: true
-  remote_user: ec2-user
-  tasks:
-      - name: Test Endpoint on Component B
-        command: wget -O /dev/null http://www.myjuniper.net
 
-      - name: Transfer executable script script on Component B
-        copy: src=checkapp.sh dest=/opt/ansible_script mode=0777
+  - name: Test Endpoint on Component B
+    command: wget -O /dev/null http://www.myjuniper.net
+
+  - name: Transfer executable script script on Component B
+    copy: src=checkapp.sh dest=/opt/ansible_script mode=0777
  
-      - name: Execute the script on Component B
-        command: sh /opt/ansible_script/checkapp.sh
+  - name: Execute the script on Component B
+    command: sh /opt/ansible_script/checkapp.sh
