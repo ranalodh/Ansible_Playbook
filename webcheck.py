@@ -1,16 +1,22 @@
 #!/usr/bin/python
-import os
-print('1. Ping Google')
-print('2. Ping Yahoo')
-print('3. Ping custom URL')
-
-key = input('Input your choice: ')
-if key == 1:
-    os.system("ping google.com")
-elif key == 2:
-    os.system("ping yahoo.com")
-elif key == 3:
-    url=raw_input('Enter URL: ')
-    os.system("ping %s" %url)
-else:
-    print("invalid input")
+# Python3 code to display hostname and 
+# IP address 
+  
+# Importing socket library 
+import socket 
+  
+# Function to display hostname and 
+# IP address 
+def get_Host_name_IP(): 
+    try: 
+        host_name = socket.gethostname() 
+        host_ip = socket.gethostbyname(host_name) 
+        print("Hostname :  ",host_name) 
+        print("IP : ",host_ip) 
+    except: 
+        print("Unable to get Hostname and IP") 
+  
+# Driver code 
+get_Host_name_IP() #Function call 
+  
+#This code is conributed by "Sharad_Bhardwaj". 
