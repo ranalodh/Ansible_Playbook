@@ -1,6 +1,5 @@
 ---
-- hosts: local
-  connection: local
+- hosts: all
   tasks: 
       - name: Get List of item in myjuniper folder
         command: "ls -la"
