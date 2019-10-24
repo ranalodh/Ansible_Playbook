@@ -2,8 +2,14 @@
   - name: Test Endpoint on Component B
     command: wget -O /dev/null http://www.myjuniper.net
 
-  - name: Transfer executable script script on Component B
+  - name: Transfer executable shell script on Component B
     copy: src=checkapp.sh dest=/opt/ansible_script mode=0777
  
   - name: Execute the script on Component B
     command: sh /opt/ansible_script/checkapp.sh
+    
+  - name: Transfer executable Python script on Component B
+    copy: src=webcheck.py dest=/opt/ansible_script mode=0777
+ 
+  - name: Execute the script on Component B
+    command: python /opt/ansible_script/webcheck.py
