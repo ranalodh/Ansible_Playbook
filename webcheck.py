@@ -18,5 +18,3 @@ def get_Host_name_IP():
   
 # Driver code 
 get_Host_name_IP() #Function call 
-  
-#This code is conributed by "Sharad_Bhardwaj". 
