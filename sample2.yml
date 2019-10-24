@@ -1,7 +1,7 @@
 ---
 - hosts: localhost
   sudo: true
-  remote_user: ec2-user
+  remote_user: root
   tasks: 
       - name: Get List of item in myjuniper folder
         command: "ls -la"
