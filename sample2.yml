@@ -3,5 +3,6 @@
   sudo: true
   remote_user: ec2-user
   tasks: 
-      - name: Execute the script
-        command: cd /myjuniper
+      - name: Get List of item in myjuniper folder
+        command: "ls -la"
+        register: dir_out
