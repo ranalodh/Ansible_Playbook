@@ -1,7 +1,6 @@
 ---
-- hosts: localhost
-  sudo: true
-  remote_user: root
+- hosts: local
+  connection: local
   tasks: 
       - name: Get List of item in myjuniper folder
         command: "ls -la"
