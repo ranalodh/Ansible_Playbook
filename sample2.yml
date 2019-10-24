@@ -1,6 +1,10 @@
 ---
-- hosts: all
-  tasks: 
-      - name: Get List of item in myjuniper folder
-        command: "ls -la"
-        register: dir_out
+- name: Test ping on localhost
+
+  hosts: localhost
+  connection: local
+
+  tasks:
+
+  - name: Ping!
+    ping:
