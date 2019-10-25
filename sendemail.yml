@@ -12,4 +12,6 @@
         password: Bitetheraddish_1234
         to: lranadip@gmail.com, ranalodh@in.ibm.com
         subject: Overview of the changes
-        body: 'Change 1205 is live.'
+        body: 'Change 1205 is live
+        charset: utf8
+        secure: never
