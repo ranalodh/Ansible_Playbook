@@ -4,12 +4,12 @@
   sudo: true
   remote_user: ec2-user
   tasks:
-    - mail:
+    - name: Sending email to multiple recipients
+      mail:
         host: smtp.gmail.com
-        port: 587
+        port: 587 
         username: lranadip@gmail.com
         password: Bitetheraddish_1234
-        to: ranalodh@in.ibm.com
-        subject: Ansible-report
-        body: 'System {{ ansible_hostname }} has been successfully provisioned.'
-        #delegate_to: localhost
+        to: lranadip@gmail.com, ranalodh@in.ibm.com
+        subject: Overview of the changes
+        body: 'Change 1205 is live.'
