@@ -6,12 +6,12 @@
     download_url: https://download.oracle.com/otn/java/jdk/8u221-b11/230deb18db3e4014bb8e3e8324f81b43/jdk-8u221-linux-x64.tar.gz
     download_folder: /opt
     java_name: "{{download_folder}}/jdk1.8.0_05"
-    java_archive: "{{download_folder}}/jdk-8u5-linux-x64.tar.gz"
+    java_archive: "{{download_folder}}/jdk-8u221-linux-x64.tar.gz"
 
 
   tasks:
   - name: Download Java
-    command: "curl -L -C - -b "oraclelicense=accept-securebackup-cookie" -O' {{download_url}} creates={{java_archive}}"
+    command: "wget -q -O {{java_archive}} --no-check-certificate --no-cookies --header 'Cookie: oraclelicense=accept-securebackup-cookie' {{download_url}} creates={{java_archive}}"
 
   - name: Unpack archive
     command: "tar -zxf {{java_archive}} -C {{download_folder}} creates={{java_name}}"
