@@ -3,7 +3,7 @@
   remote_user: root
   sudo: yes
   vars:
-    download_url: https://download.oracle.com/otn/java/jdk/8u221-b11/230deb18db3e4014bb8e3e8324f81b43/jdk-8u221-linux-x64.tar.gz
+    #download_url: https://download.oracle.com/otn/java/jdk/8u221-b11/230deb18db3e4014bb8e3e8324f81b43/jdk-8u221-linux-x64.tar.gz
     download_folder: /opt
     java_name: "{{download_folder}}/jdk1.8.0_05"
     java_archive: "{{download_folder}}/jdk-8u221-linux-x64.tar.gz"
@@ -11,7 +11,6 @@
 
   tasks:
   - name: Download Java
-    #command: "wget -q -O {{java_archive}} --no-check-certificate --no-cookies --header 'Cookie: oraclelicense=accept-securebackup-cookie' {{download_url}} creates={{java_archive}}"
     command: wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3a%2F%2Fwww.oracle.com%2Ftechnetwork%2Fjava%2Fjavase%2Fdownloads%2Fjdk8-downloads-2133151.html; oraclelicense=accept-securebackup-cookie;" "https://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-linux-x64.tar.gz"
     
   - name: Unpack archive
