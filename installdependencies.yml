@@ -1,5 +1,5 @@
 ---
-- hosts: new
+- hosts: localhost
   remote_user: ansible
   #sudo: yes
   become: true
@@ -77,3 +77,14 @@
   # Export the env on th fly to make system wide change
   - name: Source the file {{profile_path}}/oracle_jdk.sh
     action: shell source /etc/profile
+    
+  - name: Download Apache Maven 
+    get_url: url=http://apache.claz.org/maven/maven-3/3.1.1/binaries/apache-maven--bin.tar.gz dest=/tmp/apache-maven-3.1.1-bin.tar.gz
+
+  - name: Untar Maven 
+    shell: chdir=/tmp creates=/opt/apache-maven-3.1.1 tar -zxf apache-maven-3.1.1-bin.tar.gz -C /opt
+
+    # What is missing
+
+  - name: Update path for maven use
+    shell: export PATH=/opt/apache-maven-3.1.1/bin:$PATH
