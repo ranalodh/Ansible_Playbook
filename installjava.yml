@@ -7,7 +7,7 @@
     jdk_dir: 8u131-b11
     jdk_archive: jdk-8u131-linux-x64.tar.gz
     jdk_local_dir: jdk1.8.0_131
-    download_folder: /opt/oracle
+    download_folder: /opt/oracle/java
     bin_dir: /usr/bin
     profile_path: /etc/profile.d
     java_name: "{{ download_folder }}/{{ jdk_local_dir }}"
