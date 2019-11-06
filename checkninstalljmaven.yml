@@ -1,7 +1,5 @@
-- name: Check open JDK version and if not match install it
+- name: Check maven install or not and if not match install it
   hosts: all
   tasks:
-  - name: install java        
-    yum:
-      name: java-1.8.0-openjdk.x86_64
-      state: present
+  - name: install maven        
+    command: yum -a "name=maven state=absent" –become
