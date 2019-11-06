@@ -1,6 +1,6 @@
----
-hosts: all
-tasks:
+- name: Hello World Sample
+  hosts: all
+  tasks:
   - name: install java        
     yum:
       name: java-1.8.0-openjdk.x86_64
