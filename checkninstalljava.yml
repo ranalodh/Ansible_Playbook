@@ -6,5 +6,8 @@
       name: java-1.8.0-openjdk.x86_64
       state: present
       
-  - name: Update path for maven use
+  - name: Update path for java use
     shell: export PATH=/usr/bin/java:$PATH
+    
+  - name: echo PATH
+    shell: echo $PATH
