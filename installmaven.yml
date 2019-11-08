@@ -1,17 +1,67 @@
----
-- hosts: localhost
-  remote_user: ansible
-  #sudo: yes
-  become: true
+- name: Check If maven is already installed or not
+
+    shell: "mvn -version | grep -w 'Apache Maven' | awk '{print $3}'"
+
+    register: maven_installed
+
  
-  tasks:    
-  - name: Download Apache Maven 
-    get_url: url=http://apache.claz.org/maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.tar.gz dest=/tmp/apache-maven-3.6.2-bin.tar.gz
 
-  - name: Untar Maven 
-    shell: chdir=/tmp creates=/opt/apache-maven-3.6.2 tar -zxf apache-maven-3.6.2-bin.tar.gz -C /opt
+  - name: Installed maven version
 
-    # What is missing
+    debug: "msg={{maven_installed.stdout}}"
 
-  - name: Update path for maven use
-    shell: export PATH=/opt/apache-maven-3.6.2/bin:$PATH
+
+
+  - block:
+
+    - name: Download and Unarchive maven
+
+      unarchive:
+
+        src: "http://www.apache.org/dist/maven/maven-{{ maven_major }}/{{ maven_version }}/binaries/apache-maven-{{ maven_version }}-bin.tar.gz"
+
+        dest: "{{maven_home_parent_directory}}"
+
+        copy: no
+
+
+
+    - name: Create maven symlink to /usr/bin
+
+      file:
+
+        src: "{{maven_home_parent_directory}}/apache-maven-{{maven_version}}/bin/mvn"
+
+        dest: /usr/bin/mvn
+
+        state: link
+
+
+
+    - name: Configure maven and its environment variables
+
+      lineinfile:
+
+        dest: "{{maven_env_file}}"
+
+        line: "{{ item.line }}"
+
+        create: yes
+
+        state: present
+
+      with_items:
+
+        - { line: 'M2_HOME={{maven_home_parent_directory}}/apache-maven-{{maven_version}}' }
+
+        - { line: 'PATH=$PATH:$M2_HOME/bin' }
+
+   
+
+    - name: Exports/Run maven env file for make M2_HOME available globally
+
+      shell: "source {{maven_env_file}}"
+
+
+
+    when: maven_installed.stdout == ""
