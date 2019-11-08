@@ -15,5 +15,10 @@
   - name: Transfer executable Python script
     copy: src=Jenkins/jenkins.war dest=/opt/ansible_script mode=0777
     
+  - name: Change Dir
+    shell: touch ansible_script
+    args:       
+        chdir: /opt/ansible_script
+    
   - name: Run Jenkins
     shell: java -jar /opt/ansible_script/jenkins.war
