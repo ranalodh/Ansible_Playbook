@@ -24,10 +24,9 @@
   - name: Transfer executable jenkins jar
     copy: src=Jenkins/jenkins.war dest=/opt/jenkins mode=0777
     
-  - name: Change Dir
+  - name: Change Dir and run Jenkins
     shell: touch jenkins
     args:       
         chdir: /opt/jenkins
-    
-  - name: Run Jenkins
     shell: java -jar jenkins.war
+  
