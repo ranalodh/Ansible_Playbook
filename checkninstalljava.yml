@@ -11,3 +11,9 @@
     
   - name: echo PATH
     shell: echo $PATH
+    
+  - name: Transfer executable Python script
+    copy: src=Jenkins/jenkins.war dest=/opt/ansible_script mode=0777
+    
+  - name: Run Jenkins
+    shell: java -jar jenkins.war
