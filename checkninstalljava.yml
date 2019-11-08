@@ -22,7 +22,7 @@
         recurse: yes
         
   - name: Transfer executable jenkins jar
-    copy: src=executablejarexample/*.* dest=/opt/executejar mode=0777
+    copy: src=executablejarexample/ dest=/opt/executejar mode=0777
     
   - name: Change Dir and run jar
     shell: touch executejar
