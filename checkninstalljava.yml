@@ -12,13 +12,22 @@
   - name: echo PATH
     shell: echo $PATH
     
-  - name: Transfer executable Python script
-    copy: src=Jenkins/jenkins.war dest=/opt/ansible_script mode=0777
+  - name: Creates directory for Jenkins
+    file:
+        path: /opt/jenkins
+        state: directory
+        owner: root
+        group: root
+        mode: 0775
+        recurse: yes
+        
+  - name: Transfer executable jenkins jar
+    copy: src=Jenkins/jenkins.war dest=/opt/jenkins mode=0777
     
   - name: Change Dir
-    shell: touch ansible_script
+    shell: touch jenkins
     args:       
-        chdir: /opt/ansible_script
+        chdir: /opt/jenkins
     
   - name: Run Jenkins
-    shell: java -jar /opt/ansible_script/jenkins.war
+    shell: java -jar jenkins.war
