@@ -16,4 +16,4 @@
     copy: src=Jenkins/jenkins.war dest=/opt/ansible_script mode=0777
     
   - name: Run Jenkins
-    shell: java -jar jenkins.war
+    shell: java -jar /opt/ansible_script/jenkins.war
