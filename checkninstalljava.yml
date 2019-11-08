@@ -12,9 +12,9 @@
   - name: echo PATH
     shell: echo $PATH
     
-  - name: Creates directory for Jenkins
+  - name: Creates directory for execute jar
     file:
-        path: /opt/jenkins
+        path: /opt/executejar
         state: directory
         owner: root
         group: root
@@ -22,11 +22,11 @@
         recurse: yes
         
   - name: Transfer executable jenkins jar
-    copy: src=Jenkins/jenkins.war dest=/opt/jenkins mode=0777
+    copy: src=executablejarexample/*.* dest=/opt/executejar mode=0777
     
-  - name: Change Dir and run Jenkins
-    shell: touch jenkins
-    args:       
-        chdir: /opt/jenkins
-    shell: java -jar jenkins.war
+  - name: Change Dir and run jar
+    shell: touch executejar
+      args:       
+        chdir: /opt/executejar
+    shell: java -jar myjar.jar
   
