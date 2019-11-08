@@ -28,5 +28,5 @@
     shell: touch executejar
     args:       
        chdir: /opt/executejar
-       shell: java -jar myjar.jar
+    shell: java -jar myjar.jar
   
