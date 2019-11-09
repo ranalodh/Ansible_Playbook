@@ -1,0 +1,20 @@
+- name: Move Selenium Code to Local and run it
+  hosts: all
+  tasks:
+  - name: Creates directory for execute jar
+    file:
+        path: /opt/selenium
+        state: directory
+        owner: root
+        group: root
+        mode: 0775
+        recurse: yes
+        
+  - name: Transfer selenium
+    copy: src=c:/myjuniper/ dest=/opt/selenium mode=0777
+    
+  - name: Change Dir and run jar
+    shell: touch selenium
+    args:       
+       chdir: /opt/selenium
+    shell: mvn compile test
