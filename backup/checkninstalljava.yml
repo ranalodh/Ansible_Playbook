@@ -9,6 +9,9 @@
   - name: Update path for java use
     shell: export PATH=/usr/bin/java:$PATH
     
+  - name: Update JAVA_HOME for java use
+    shell: export JAVA_HOME=/usr/bin/java
+    
   - name: echo PATH
     shell: echo $PATH
     
