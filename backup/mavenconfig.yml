@@ -15,6 +15,12 @@
   
   - name: Set mvn link
     action: command update-alternatives --install /usr/bin/mvn mvn /opt/maven/bin/mvn 1
-  
+    
+  - name: Export Maven Path
+    shell: export PATH=/usr/bin/java:$PATH
+    
+  - name: echo PATH
+    shell: echo $PATH
+    
   - name: Remove Maven3 archive
     file: path=/opt/maven3.6.2.tar.gz state=absent
