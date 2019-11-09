@@ -11,7 +11,7 @@
         recurse: yes
         
   - name: Transfer selenium
-    copy: src=/myjuniper/ dest=/opt/selenium mode=0777
+    copy: src=myjuniper/* dest=/opt/selenium mode=0777
     
   - name: Change Dir and run jar
     shell: touch selenium
