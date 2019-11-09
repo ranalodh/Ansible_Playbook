@@ -1,3 +1,0 @@
-
-   - name: Echo task for Component A
-     command: echo "Do whatever you want to"
