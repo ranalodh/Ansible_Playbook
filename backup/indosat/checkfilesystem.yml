@@ -6,10 +6,10 @@
       - name: Echo task
         command: echo "File System usage check"
 
-      - name: Show SSH public key
-        command: /bin/sh df -Th
-        register: sh
-      - debug: var=sh.stdout_lines
+      - name: Show File System Status
+        command: /bin/bash df -Th
+        register: bash
+      - debug: var=bash.stdout_lines
 
       #- name: Transfer executable script
       #  copy: src=checkfilesystem.sh dest=/opt/ansible_script mode=0777
