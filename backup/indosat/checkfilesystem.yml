@@ -12,9 +12,9 @@
       - name: Execute the script
         command: sh /opt/ansible_script/checkfilesystem.sh
 
-      - fetch:
-          src: /opt/ansible_script/result.txt
-          dest: /etc/tower
+    #  - fetch:
+    #      src: /opt/ansible_script/result.txt
+      #      dest: /etc/tower
 
-      - name: Remove sh and txt file from remote after copy in Ansible AWX
-        shell: /bin/rm -rf /opt/ansible_script/*
+    #    - name: Remove sh and txt file from remote after copy in Ansible AWX
+    #      shell: /bin/rm -rf /opt/ansible_script/*

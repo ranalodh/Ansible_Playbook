@@ -1,2 +1,2 @@
 #!/bin/bash
-df -Th > result.txt
+df -Th
