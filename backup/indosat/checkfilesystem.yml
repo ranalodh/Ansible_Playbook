@@ -8,7 +8,7 @@
 
       - name: This command will shiw File System Details
         shell:
-          cmd: df -Th | grep log
+          cmd: df -Th
 
       #- name: Transfer executable script
       #  copy: src=checkfilesystem.sh dest=/opt/ansible_script mode=0777
