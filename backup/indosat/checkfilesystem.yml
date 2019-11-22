@@ -6,10 +6,9 @@
       - name: Echo task
         command: echo "File System usage check"
 
-      - name: Show File System Status
-        command: /bin/bash df -Th
-        register: bash
-      - debug: var=bash.stdout_lines
+      - name: This command will change the working directory to somedir/.
+        shell:
+          cmd: ls -l | grep log
 
       #- name: Transfer executable script
       #  copy: src=checkfilesystem.sh dest=/opt/ansible_script mode=0777
