@@ -15,7 +15,7 @@
           var=ansible_hostname
           
       - name: Show Survey Var
-        shell: echo 'My Name is : ' {{ my_name }}
+        shell: echo "My Name is : {{ my_name }}"
           
       
           
