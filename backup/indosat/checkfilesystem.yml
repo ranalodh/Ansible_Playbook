@@ -14,6 +14,10 @@
         debug:
           var=ansible_hostname
           
+      - name: "READ INPUT VARS"
+        include_vars:
+        file: "{{ input_file }}"
+          
       #- name: Transfer executable script
       #  copy: src=checkfilesystem.sh dest=/opt/ansible_script mode=0777
 
