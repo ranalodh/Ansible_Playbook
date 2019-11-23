@@ -14,6 +14,10 @@
         debug:
           var=ansible_hostname
           
+      - name: Show Survey Var
+        debug:
+          var={{ my_name }} 
+          
       
           
       #- name: Transfer executable script
