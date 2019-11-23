@@ -8,7 +8,7 @@
 
       - name: This command will shiw File System Details
         shell:
-          cmd: df -Th
+          cmd: df -khT
           
       - name: Print Host Name
         debug:
