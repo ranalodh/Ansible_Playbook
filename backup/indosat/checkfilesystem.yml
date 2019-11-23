@@ -4,12 +4,16 @@
   remote_user: ec2-user
   tasks:
       - name: Echo task
-        command: echo "File System usage check"
+        command: echo "File System check"
 
       - name: This command will shiw File System Details
         shell:
           cmd: df -Th
-
+          
+      - name: Print Host Name
+        debug:
+          var=ansible_hostname
+          
       #- name: Transfer executable script
       #  copy: src=checkfilesystem.sh dest=/opt/ansible_script mode=0777
 
