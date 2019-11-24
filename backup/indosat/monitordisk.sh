@@ -6,7 +6,7 @@
 # set admin email so that you can get email
 #ADMIN="me@somewher.com"
 # set alert level 90% is default
-ALERT=75
+ALERT=15
 df -H | grep -vE '^Filesystem|tmpfs|cdrom' | awk '{ print $5 " " $1 }' | while read output;
 do
   #echo $output

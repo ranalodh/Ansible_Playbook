@@ -17,7 +17,7 @@
      # - name: Show Survey Var
      #   shell: echo "My Name is {{ my_name }}"
           
-     - name: Transfer executable script script
+      - name: Transfer executable script script
         copy: src=monitordisk.sh dest=/opt/ansible_script mode=0777
  
       - name: Execute the script
