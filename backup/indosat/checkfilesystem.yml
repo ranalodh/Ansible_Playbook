@@ -21,5 +21,5 @@
         copy: src=monitordisk.sh dest=/opt/ansible_script mode=0777
  
       - name: Execute the script
-        command: sh /opt/ansible_script/monitordisk.sh        
+        command: sh /opt/ansible_script/monitordisk.sh {{ disk_use }}       
      
