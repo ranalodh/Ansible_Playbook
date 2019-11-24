@@ -4,7 +4,7 @@
 # of space is >= 75% 
 # -------------------------------------------------------------------------
 # set admin email so that you can get email
-#ADMIN="me@somewher.com"
+ADMIN="lranadip@gmail.com"
 # set alert level 90% is default
 #$0=Use % as parameter
 ALERT=15
@@ -14,7 +14,7 @@ do
   usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1  )
   partition=$(echo $output | awk '{ print $2 }' )
   if [ $usep -ge $ALERT ]; then
-    echo "Running out of space \"$partition ($usep%)\" on $(hostname) as on $(date)" #| 
-   #  mail -s "Alert: Almost out of disk space $usep" $ADMIN
+    echo "Running out of space \"$partition ($usep%)\" on $(hostname) as on $(date)" | 
+    mail -s "Alert: Almost out of disk space $usep" $ADMIN
   fi
 done
