@@ -13,12 +13,11 @@
         debug:
           var=ansible_hostname
  
-      - name: Update modification and access time of given file
+      - name: Create a directory if it does not exist
         file:
-          path: /etc/some_file
-          state: file
-          modification_time: now
-          access_time: now
+          path: /home/ec2-user/ansible_script
+          state: directory
+          mode: '0755'
 
           
       - name: Transfer executable script script
