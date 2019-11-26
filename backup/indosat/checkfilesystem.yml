@@ -1,6 +1,5 @@
 ---
-- hosts: ec2-user@ec2-54-159-136-238.compute-1.amazonaws.com
-  sudo: true
+- hosts: all
   remote_user: ec2-user
   tasks:
       - name: Echo task
