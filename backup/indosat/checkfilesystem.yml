@@ -15,6 +15,8 @@
           
      # - name: Show Survey Var
      #   shell: echo "My Name is {{ my_name }}"
+      - name: Create a folder
+        command: mkdir /opt/ansible_script state=present
           
       - name: Transfer executable script script
         copy: src=monitordisk.sh dest=/opt/ansible_script mode=0777
