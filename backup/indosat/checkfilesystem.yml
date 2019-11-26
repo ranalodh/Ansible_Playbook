@@ -12,15 +12,13 @@
       - name: Print Host Name
         debug:
           var=ansible_hostname
-          
-     # - name: Show Survey Var
-     #   shell: echo "My Name is {{ my_name }}"
+ 
       - name: Create a folder
-        command: mkdir /home/ansible_script state=present
+        command: mkdir /home/ec2-user/ansible_script state=present
           
       - name: Transfer executable script script
-        copy: src=monitordisk.sh dest=/home/ansible_script mode=0777
+        copy: src=monitordisk.sh dest=/home/ec2-user/ansible_script mode=0777
  
       - name: Execute the script
-        command: sh /home/ansible_script/monitordisk.sh      
+        command: sh /home/ec2-user/ansible_script/monitordisk.sh      
      
