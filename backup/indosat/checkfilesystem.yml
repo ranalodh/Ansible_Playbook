@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: ec2-user@ec2-18-223-3-189.us-east-2.compute.amazonaws.com
   remote_user: ec2-user
   tasks:
       - name: Echo task
