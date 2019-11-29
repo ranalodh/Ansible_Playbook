@@ -32,5 +32,5 @@
       - name: "Artifact Disk Check results to Tower Workflows"
         set_stats:
          data:
-          diskcheck_result:  "{{ result.stdout|from_json }}"      
+          diskcheck_result:  "{{ result.stdout }}"      
      
