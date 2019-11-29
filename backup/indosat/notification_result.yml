@@ -5,10 +5,10 @@
   gather_facts: no
   tasks:
     - name: "Get test results from the checkfilesystem_ec2"
-      uri:
-       url: "{{ diskcheck_result }}"
-       return_content: true
-      register: results
+      set_stats:
+       data:
+        result:  "{{ diskcheck_result }}"  
+        register: result
 
 
     - name: "Output test results"
