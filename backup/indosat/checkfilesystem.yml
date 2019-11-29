@@ -1,6 +1,8 @@
 ---
 - hosts: ec2-user@ec2-18-223-3-189.us-east-2.compute.amazonaws.com
   remote_user: ec2-user
+  strategy: free
+  gather_facts: no
   tasks:
       - name: Echo task
         command: echo "File System check"
