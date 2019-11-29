@@ -1,0 +1,16 @@
+---
+- hosts: ec2-user@ec2-54-159-136-238.compute-1.amazonaws.com
+  remote_user: ec2-user
+  strategy: free
+  gather_facts: no
+  tasks:
+    - name: "Get test results from the checkfilesystem_ec2"
+      uri:
+       url: "{{ diskcheck_result }}"
+       return_content: true
+      register: results
+
+
+    - name: "Output test results"
+      debug:
+       msg: "{{ results.content }}"
