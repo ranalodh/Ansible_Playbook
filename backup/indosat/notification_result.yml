@@ -10,3 +10,15 @@
     - name: "Output test results"
       debug:
        msg: "{{ disk_result }}"
+       
+  tasks:
+    - name: Mail sending using Mail module
+      mail:
+        host: "smtp.gmail.com"
+        port: 587
+        username: "lranadip@gmail.com"
+        password: "Bitetheraddish_1234"
+        to: "Ranadip Lodh <ranadiplodh4@gmail.com>"
+        subject: "Mail sending using Mail module"
+        body: "{{ disk_result }}"
+        secure: starttls
