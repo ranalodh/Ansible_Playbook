@@ -3,7 +3,7 @@
   strategy: free
   gather_facts: no
   vars:
-    - disk_result: "{{ diskcheck_result_ec2 }}" "{{ diskcheck_result_ec1 }}"
+    - disk_result: "{{ diskcheck_result_ec2 }}  {{ diskcheck_result_ec1 }}"
     
   tasks:
     - name: "Output test results"
