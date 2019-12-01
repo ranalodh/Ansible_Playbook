@@ -12,7 +12,7 @@
        msg: "{{ disk_result }}"
        
   tasks:
-    - name: Mail sending using Mail module
+    - name: "Mail sending using Mail module"
       mail:
         host: "smtp.gmail.com"
         port: 587
