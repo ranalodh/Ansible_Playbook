@@ -4,8 +4,8 @@
   strategy: free
   gather_facts: no
   vars:
-    - disk_result: {{ diskcheck_result }}
+    - disk_result: "{{ diskcheck_result }}"
 
     - name: "Output test results"
       debug:
-       msg: {{ disk_result }}
+       msg: "{{ disk_result }}"
