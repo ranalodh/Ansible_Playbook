@@ -3,11 +3,8 @@
   remote_user: ec2-user
   strategy: free
   gather_facts: no
-  tasks:
-    - name: "Get test results from the checkfilesystem_ec2"      
-       vars:
-        - disk_result: {{ diskcheck_result }}
-
+  vars:
+    - disk_result: {{ diskcheck_result }}
 
     - name: "Output test results"
       debug:
