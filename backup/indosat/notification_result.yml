@@ -5,11 +5,10 @@
   gather_facts: no
   tasks:
     - name: "Get test results from the checkfilesystem_ec2"      
-       var:
-        result:  "{{ diskcheck_result }}"  
-        register: result
+       vars:
+        - disk_result: {{ diskcheck_result }}
 
 
     - name: "Output test results"
       debug:
-       msg: "{{ result.content }}"
+       msg: {{ disk_result }}
