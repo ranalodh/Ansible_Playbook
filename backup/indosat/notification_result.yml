@@ -17,7 +17,7 @@
         port: 587
         username: "lranadip@gmail.com"
         password: "Bitetheraddish_1234"
-        to: "Ranadip Lodh <ranadiplodh4@gmail.com>"
+        to: "{{ email }}"
         subject: "Mail sending using Mail module"
         body: "{{ disk_result }}"
         secure: starttls
