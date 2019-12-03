@@ -14,7 +14,7 @@ do
   #echo $output
   usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1  )
   partition=$(echo $output | awk '{ print $2 }' )
-  if [[ $usep -ge $ALERT && "$partition" -eq $FILE_SYSTEM_NAME ]]; then
+  if [ $usep -ge $ALERT ] && [ "$partition" -eq $FILE_SYSTEM_NAME ]]; then
     echo "Running out of space \"$partition ($usep%)\" on $(hostname) as on $(date)"
   else
     echo "No Match Found for supplied \"$partition ($usep%)\" on $(hostname) as on $(date)"  
