@@ -16,7 +16,6 @@
           path: /home/ec2-user/ansible_script
           state: directory
           mode: '0755'
-
           
       - name: Transfer executable script script
         copy: src=monitordisk.sh dest=/home/ec2-user/ansible_script mode=0777

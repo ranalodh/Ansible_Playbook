@@ -8,13 +8,15 @@ ADMIN="lranadip@gmail.com"
 # set alert level 90% is default
 #$0=Use % as parameter
 ALERT=15
-FILE_SYSTEM_NAME=/dev/xvda1
+FILE_SYSTEM_NAME="/dev/xvda1"
 df -H | grep -vE '^Filesystem|tmpfs|cdrom' | awk '{ print $5 " " $1 }' | while read output;
 do
   #echo $output
   usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1  )
   partition=$(echo $output | awk '{ print $2 }' )
-  if [ $usep -ge $ALERT ] && [ $partition -eq $FILE_SYSTEM_NAME ]; then
+  if [[ $usep -ge $ALERT && $partition -eq $FILE_SYSTEM_NAME ]]; then
     echo "Running out of space \"$partition ($usep%)\" on $(hostname) as on $(date)"
+  else
+    echo "No Match Found for supplied \"$partition ($usep%)\" on $(hostname) as on $(date)"  
   fi
 done
