@@ -7,8 +7,10 @@
 #ADMIN="lranadip@gmail.com"
 # set alert level 90% is default
 #$0=Use % as parameter
-ALERT=15
-FILE_SYSTEM_NAME="/dev/xvda2"
+
+ALERT=$1
+FILE_SYSTEM_NAME=$2
+
 df -H | grep -vE '^Filesystem|tmpfs|cdrom' | awk '{ print $5 " " $1 }' | while read output;
 do
   #echo $output
