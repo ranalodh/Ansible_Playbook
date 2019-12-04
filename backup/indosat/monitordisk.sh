@@ -4,7 +4,7 @@
 # of space is >= 75% 
 # -------------------------------------------------------------------------
 # set admin email so that you can get email
-ADMIN="lranadip@gmail.com"
+#ADMIN="lranadip@gmail.com"
 # set alert level 90% is default
 #$0=Use % as parameter
 ALERT=15
@@ -14,9 +14,12 @@ do
   #echo $output
   usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1  )
   partition=$(echo $output | awk '{ print $2 }' )
-  if [ $usep -ge $ALERT ] && [ "$partition" -eq $FILE_SYSTEM_NAME ]]; then
-    echo "Running out of space \"$partition ($usep%)\" on $(hostname) as on $(date)"
+  if [ "$partition" = "$FILE_SYSTEM_NAME" ]; then
+	if [ $usep -ge $ALERT ]; then
+		echo "Running out of space \"$partition ($usep%)\" on $(hostname) as on $(date)"
+	else
+		echo "No Match Found for supplied \"$partition ($usep%)\" on $(hostname) as on $(date)"
   else
-    echo "No Match Found for supplied \"$partition ($usep%)\" on $(hostname) as on $(date)"  
+    echo "No File system present with name \"$FILE_SYSTEM_NAME\" on $(hostname) as on $(date)"
   fi
 done
