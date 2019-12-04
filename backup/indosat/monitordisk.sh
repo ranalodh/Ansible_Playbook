@@ -19,6 +19,7 @@ do
 		echo "Running out of space \"$partition ($usep%)\" on $(hostname) as on $(date)"
 	else
 		echo "No Match Found for supplied \"$partition ($usep%)\" on $(hostname) as on $(date)"
+    fi 		
   else
     echo "No File system present with name \"$FILE_SYSTEM_NAME\" on $(hostname) as on $(date)"
   fi
