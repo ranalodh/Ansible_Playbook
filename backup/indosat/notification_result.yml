@@ -17,7 +17,7 @@
         port: 587
         username: "lranadip@gmail.com"
         password: "Bitetheraddish_1234"
-        to: "{{ email }}"
-        subject: "Mail sending using Mail module"
+        to: "{{ emailid }}"
+        subject: "File System Details"
         body: "{{ disk_result }}"
         secure: starttls
