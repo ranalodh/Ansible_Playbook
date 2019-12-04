@@ -21,7 +21,7 @@
         copy: src=monitordisk.sh dest=/home/ec2-user/ansible_script mode=0777
  
       - name: Execute the script
-        command: sh /home/ec2-user/ansible_script/monitordisk.sh {{ usage }} {{ filesys }}
+        command: sh /home/ec2-user/ansible_script/monitordisk.sh {{ usage1 }} {{ filesys1 }}
         register: result
 
       - name: "Artifact Disk Check results to Tower Workflows"
